@@ -24,3 +24,4 @@ Route::post('folder', [\App\Http\Controllers\FolderController::class, 'create'])
 Route::post('share', [\App\Http\Controllers\FolderController::class, 'share']);
 Route::get('folder/{folder_id?}', [\App\Http\Controllers\FolderController::class, 'index']);
 Route::post('folder/{folder_id?}/file', [\App\Http\Controllers\FileController::class, 'create']);
+Route::get('download', [\App\Http\Controllers\FileController::class, 'store']);

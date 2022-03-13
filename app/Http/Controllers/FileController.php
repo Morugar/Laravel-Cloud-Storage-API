@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 
 use App\Models\File;
+use App\Models\FilesCoauthors;
 use App\Models\User;
+use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Validator;
 
 class FileController extends Controller
@@ -54,7 +57,7 @@ class FileController extends Controller
         $destination_path = 'public/uploads';
         $file = $request->file('file');
         $file_name = $file->getClientOriginalName();
-        $path = $request->file('file')->storeAs($destination_path, $file_name);
+        $path = Storage::disk('local')->putFileAs($destination_path, $file, $file_name);
         $model = [
             'name' => $name,
             'folder_id' => $folder_id,
@@ -74,12 +77,38 @@ class FileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     *
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $file = File::where('file_id', $data['file_id'])->first();
+        $user = User::where('api_token', $data['api_token'])->first();
+        if($file['author_id'] == $user['user_id']) {
+           return Storage::disk('local')->download($file['url'], $file['name']);
+        }
+        else {
+            $shareCheck = FilesCoauthors::where('user_id', $user['user_id'])->where('file_id', $file['file_id'])->first();
+            if(!$shareCheck) {
+                return response()->json([
+                    'error' => [
+                        'code' => 401,
+                        'message' => 'Permission Error'
+                    ]
+                ], 401);
+            }
+            else {
+                return Storage::download($file['url'], $file['name']) && response()->json([
+                        'data' => [
+                            'code' => 200,
+                            'message' => 'Success',
+                            'file' => $file
+                        ]
+                    ], 200);
+            }
+        }
     }
 
     /**

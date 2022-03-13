@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use App\Models\Folder;
 use App\Models\FoldersCoauthors;
 use App\Models\User;
@@ -68,16 +69,40 @@ class FolderController extends Controller
 
     public function index(Request $request, int $folder_id = 0)
     {
-        if(!$folder_id || $folder_id = 0) {
-            $folders = Folder::where('parent_id', 0)->get();
-        }
-        else {
-            $folders = Folder::where('parent_id', $folder_id)->get();
-        }
+        $data = $request->all();
 
-        return response()->json($folders,200);
-        //
-    }
+        $user = User::where('api_token', $data['api'])->first();
+
+        $folder = Folder::where('folder_id', $folder_id)->first();
+        $files = File::where('folder_id', $folder['folder_id'])->get();
+        if($folder['author_id'] == $user['user_id']) {
+                return response()->json([
+                    'data' => [
+                        'code' => 200,
+                        'files' => $files
+                    ]
+                ], 200);
+            }
+        else {
+            $shareCheck = FoldersCoauthors::where('user_id', $user['user_id'])->where('folder_id', $folder['folder_id'])->first();
+            if(!$shareCheck) {
+                return response()->json([
+                    'error' => [
+                        'code' => 401,
+                        'message' => 'Permission Error'
+                    ]
+                ], 401);
+            }
+            else {
+                return response()->json([
+                    'data' => [
+                        'code' => 200,
+                        'files' => $files
+                    ]
+                ], 200);
+            }
+            }
+        }
 
     /**
      * Show the form for creating a new resource.
