@@ -6,11 +6,14 @@
 
 - Required only Laravel and php 8.0 or greater
 
-- Realization using Bearer token 
+- Realization using tokens auth
 
 - Example of web-app that use this api you can find on 'web-app' branch
 
-- Example of DB you can find on 'data' branch
+ - Dump of DB and Postman Collection you can find in 'data' folder
+
+ ### In future, I have a plan to make realization using Bearer Tokens.
+ ### This API was made in hurry, so it can have some shortcomings
 ------------ 
 ## How to start
  
@@ -24,6 +27,9 @@ for example:
 or
 
 > php artisan serve
+
+### You also need to start a server with database on it.
+### Configure DB in '.env' or in 'config/database.php'
 ---------------
 ## Requests
 
@@ -86,11 +92,11 @@ Response
 > 
 > Body: 
 >
-> - login - string|required|min:3|max:16
+> - login - string|required
 >
 > - email - string|required
 >
-> - password - string|required|min:6|max:32
+> - password - string|required|min:5
 ---------------
 #### Login: 
 > URL: https://localhost:8000/api/login
@@ -103,7 +109,95 @@ Response
 > 
 > Body: 
 >
-> - login_or_email - string|required
+> - login - required
 >
-> - password - string|required
+> - password - required
+Response
+>Successful
+
+> Status: 200
+>
+>Content-Type: application/json
+>Body: 
+>
+> - api_token = 'user token'
+---------------
+### Folder creation: 
+> URL: https://localhost:8000/api/folder 
+>
+> Method: POST
+>
+> Headers: 
+> 
+> - Content-Type: application/json
+> 
+> Body: 
+>
+> - name - string|required
+>
+> - api_token - required 
+---------------
+### Folder share: 
+> URL: https://localhost:8000/api/share 
+>
+> Method: POST
+>
+> Headers: 
+> 
+> - Content-Type: application/json
+> 
+> Body: 
+>
+> - user_id - required
+>
+> - folder_id - required
+>
+> - api_token - required 
+---------------
+### Folder view: 
+> URL: https://localhost:8000/api/folder/{folder_id} 
+>
+> Method: POST
+>
+> Headers: 
+> 
+> - Content-Type: application/json
+> 
+> Body: 
+>
+> - folder_id - required
+>
+> - api_token - required 
+---------------
+### File creation: 
+> URL: https://localhost:8000/api/folder/{folder_id}/file 
+>
+> Method: POST
+>
+> Headers: 
+> 
+> - Content-Type: application/json
+> 
+> Body: 
+>
+> - name - required
+>
+> - file - required
+>
+> - api_token - required 
+---------------
+### File download: 
+> URL: https://localhost:8000/api/download
+>
+> Method: POST
+>
+> Headers: 
+> 
+> - Content-Type: application/json
+> 
+> Body: 
+>
+> - file_id = required
+>
+> - api_token - required 
 ---------------

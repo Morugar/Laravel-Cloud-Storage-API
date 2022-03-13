@@ -184,7 +184,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\storage\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\cloud-storage-api\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -355,12 +355,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\storage\\storage\\app',
+        'root' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\cloud-storage-api\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\storage\\storage\\app/public',
+        'root' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\cloud-storage-api\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -378,7 +378,7 @@
     ),
     'links' => 
     array (
-      'C:\\Users\\morugar\\projects\\Storage API Laravel\\storage\\public\\storage' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\storage\\storage\\app/public',
+      'C:\\Users\\morugar\\projects\\Storage API Laravel\\cloud-storage-api\\public\\storage' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\cloud-storage-api\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -413,13 +413,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\storage\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\cloud-storage-api\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\storage\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\cloud-storage-api\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -470,7 +470,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\storage\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\cloud-storage-api\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -536,7 +536,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\storage\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\cloud-storage-api\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -641,7 +641,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\storage\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\cloud-storage-api\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -661,9 +661,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\storage\\resources\\views',
+      0 => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\cloud-storage-api\\resources\\views',
     ),
-    'compiled' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\storage\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\morugar\\projects\\Storage API Laravel\\cloud-storage-api\\storage\\framework\\views',
   ),
   'flare' => 
   array (

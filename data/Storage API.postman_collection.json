@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "6240547c-3ea8-4d19-a74c-20783ecc2fdb",
+		"name": "Storage API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "login",
+							"value": "Tanya",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "tanya@mail.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "kekovovov",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "login",
+							"value": "Sasha",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "kekovovov",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "omegalul9rgghj",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parent_id",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "api_token",
+							"value": "622c9f85a5815622c9f85a5816",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/morugar/Pictures/Screenshot_11.png",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/folder/3?api=622cb58ca776d622cb58ca776e",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"folder",
+						"3"
+					],
+					"query": [
+						{
+							"key": "api",
+							"value": "622cb58ca776d622cb58ca776e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "share",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "folder_id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "api_token",
+							"value": "622c9f85a5815622c9f85a5816",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/share",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"share"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "file",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api_token",
+						"value": "622c9f85a5815622c9f85a5816",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/folder/3?api=622c9f85a5815622c9f85a5816",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"folder",
+						"3"
+					],
+					"query": [
+						{
+							"key": "api",
+							"value": "622c9f85a5815622c9f85a5816"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "download",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/download?api_token=622c9f85a5815622c9f85a5816&file_id=9",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"download"
+					],
+					"query": [
+						{
+							"key": "api_token",
+							"value": "622c9f85a5815622c9f85a5816"
+						},
+						{
+							"key": "file_id",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

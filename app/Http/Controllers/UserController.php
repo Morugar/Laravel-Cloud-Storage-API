@@ -19,7 +19,7 @@ class UserController extends Controller
         $validator = Validator::make($data, $rules);
         if($validator->fails()) {
             return response()->json([
-                'error' => [
+                'data' => [
                     'code' => 422,
                     'message' => 'Validation Error',
                     'errors' => $validator->errors()
@@ -52,7 +52,7 @@ class UserController extends Controller
         $validator = Validator::make($data, $rules);
         if($validator->fails()) {
             return response()->json([
-                'error' => [
+                'data' => [
                     'code' => 422,
                     'message' => 'Validation Error',
                     'errors' => $validator->errors()
@@ -63,7 +63,7 @@ class UserController extends Controller
             $user = User::where('login', $data['login'])->first();
             if(!$user || $user['password'] != $data['password']) {
                 return response()->json([
-                    'error' => [
+                    'data' => [
                         'code' => 401,
                         'message' => 'Invalid login or password',
                     ]
