@@ -1,0 +1,66 @@
+.auth-modal-menu {
+    justify-content: center;
+    justify-self: center;
+    margin-top: 20%;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    opacity: 80%;
+    padding: 15px;
+    width: 20%;
+    margin-left: 40%;
+    font-size: 32px;
+}
+
+.login-form {
+    justify-self: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.register_form {
+    justify-self: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.login-button:hover, .register-button:hover {
+    color: gray;
+    opacity: 100%;
+    cursor: pointer;
+}
+
+#login_password_input, #login_username_input {
+    border-color: darkslategray;
+    border-style: solid;
+    border-width: 1px;
+    font-family: sans-serif;
+}
+
+#login_button_input {
+    border: black solid 1px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#register_email_input, #register_password_input, #register_username_input, #register_repassword_input {
+    border-color: darkslategray;
+    border-style: solid;
+    border-width: 1px;
+    font-family: sans-serif;
+}
+
+#register_button_input {
+    border: black solid 1px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+}
